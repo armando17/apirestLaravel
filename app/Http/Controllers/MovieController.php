@@ -13,7 +13,7 @@ class MovieController extends Controller
     public function index(Request $request)
     {
 
-        $perpag = $request->get('perpag') ? $request->get('perpag') : 2;
+        $perpag = $request->get('perpag') ? $request->get('perpag') : 100;
         $pag = $request->get('pag') ? $request->get('pag') : 1;
         
         $skip =  ($pag - 1) * $perpag;
