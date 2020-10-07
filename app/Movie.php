@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Directorio extends Model
+class Movie extends Model
 {
-    protected $table = 'directorios';
+    /*
+    protected $table = 'movies';
 
     protected $fillable = [
         'nombre_completo',
@@ -26,4 +27,5 @@ class Directorio extends Model
             'telefono' => 'required|unique:directorios,telefono,' . ($isNew ? '' : request('directorio')->id)
         ];
     }
+    */
 }

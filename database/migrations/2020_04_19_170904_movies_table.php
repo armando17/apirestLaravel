@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Directorio extends Migration
+class MoviesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class Directorio extends Migration
      */
     public function up()
     {
-        Schema::create('directorios', function (Blueprint $table) {
+        Schema::create('movies', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_completo', 100);
-            $table->string('direccion')->nullable();
-            $table->integer('telefono')->unique();
-            $table->string('foto')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('nombre', 100);
+            $table->string('description')->nullable();
+            $table->integer('year');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class Directorio extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('directorio');
+        Schema::dropIfExists('movies');
     }
 }

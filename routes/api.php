@@ -18,9 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('users', 'UserController@store');
 Route::post('login', 'UserController@login');
 
 Route::group(['middleware'=>'auth:api'], function(){
-    Route::ApiResource('directorios', 'DirectorioController');
+    Route::ApiResource('movies', 'MovieController');
     Route::post('logout', 'UserController@logout');
 });

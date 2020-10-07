@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'birth_date', 'email', 'password', 
     ];
 
     /**
@@ -37,4 +37,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function rules($isNew = true)
+    {
+        return [
+            'password' => 'required|min:9|max:50',
+            //'telefono' => 'required|unique:directorios,telefono,' . ($isNew ? '' : request('directorio')->id)
+        ];
+    }
 }
